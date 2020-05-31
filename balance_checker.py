@@ -6,7 +6,7 @@ import requests
 from requests.exceptions import *
 from  json.decoder import JSONDecodeError
 #result
-file_pointer=open("result.txt","a")
+file_pointer=open("result.txt","a") #your file name
 
 def balance(address):
     
@@ -53,21 +53,23 @@ def balance(address):
 
 def read_thread(q,fq):
     j=0
-    with open("cain.txt","r") as  filep:
+    with open("inputfile.txt","r") as  filep:  #change ur file name
         for i in filep:
                 # sleep(5)
+                
+                #change the logic here my file had format of "address=privatekey"
 
                print("pushing {} item into queue".format(i.strip()))
                q.put(i.strip())
         else:
             
-            q.put(None)#c1
+            q.put(None)#stop process 1
             # sleep(1)
-            q.put(None)#c2
-            q.put(None) #c3
+            q.put(None)#stop process 2
+            q.put(None) # stop process 3
            
             
-            q.put(None) #c4
+            q.put(None) #stop process 4
 
             fq.put(None) #thread which does file write
             # q.put(None)
@@ -79,6 +81,7 @@ def read_thread(q,fq):
 def consume(q,filewriteQueue):
     while(True):
         try:
+            #add timeout
             item=q.get()
             
             if(item==None):
@@ -87,7 +90,11 @@ def consume(q,filewriteQueue):
 
             #balance api call'
             # balance("3")
-            print(item.split("=")[0])
+            
+            
+            #the file i had had the format of "address=private key"
+            #so split("=")[0] gives me the address and split("=")[1] gives me the private key
+             print(item.split("=")[0])
             
             rt=balance(item.split("=")[0]) #return item
 
@@ -103,11 +110,11 @@ def consume(q,filewriteQueue):
             # print(filewriteQueue)
 
             print(rt+" added to the file write que")
-            # sleep(5)
+            # sleep(5)   add timeout
 
         except Exception:
                          
-                         print("the api is returning null which is being written")
+                         print("the api is returning null,either use another api or add a timeout to the processes")
 
 
 
@@ -119,7 +126,7 @@ def read_and_write(fileQueue):
             print(current_thread().name+ " exited")
             break
 
-        file_pointer.writelines(item+"\n")
+        file_pointer.writelines(item+"\n") #write to result file
 
 
 
@@ -170,5 +177,5 @@ if __name__ == "__main__":
 
     end=perf_counter()
 
-    print(end-start)
+    print(end-start) #print the total time taken
     
