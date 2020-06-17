@@ -8,16 +8,6 @@ note: be carefull to add timeout or else you will be banned from some api
 
 
 
-any tip is appreciated
-
-
-Btc 1Hq3R6pFKtoXVQPsSU7dRRCQBRvnY22scm
-
-Eth 0x9717313433388d5a1D670B6358A7eecb08E25823
-
-Ltc LN9JxoxmgKMFVsEZJXoThzstXnfTrMLTAu
-
-Bch qpmzueg30xf224xng3ct7gm7297zgeaplvrkk9nq79
 
 
 
