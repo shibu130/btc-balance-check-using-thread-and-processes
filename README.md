@@ -5,6 +5,8 @@ I think batching multiple addresses will be good instead of each query consideri
 
 note: be carefull to add timeout or else you will be banned from some api 
 
+issues : memory leak
+
 
 
 
