@@ -3,6 +3,8 @@ This code check the btc balance concurrently from api , basically here a thread 
 
 I think batching multiple addresses will be good instead of each query considering all the api's have rate limits
 
+u may consider using my other webscraper instead of this
+
 note: be carefull to add timeout or else you will be banned from some api 
 
 issues : memory leak
