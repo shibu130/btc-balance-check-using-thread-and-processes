@@ -7,6 +7,9 @@ u may consider using my other webscraper instead of this
 
 note: be carefull to add timeout or else you will be banned from some api 
 
+#trying to use this code is waste of time  better use https://github.com/shibu130/blockchain.com_scraper 
+
+
 issues : memory leak
 
 
